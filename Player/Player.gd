@@ -4,6 +4,8 @@ class_name Player
 
 export var slow_speed: int = 150
 
+onready var can_bullets_be_reflected : bool = true
+
 
 func _physics_process(delta):
 	var move := Vector2()
@@ -19,6 +21,7 @@ func _physics_process(delta):
 	
 	curr_cooldown -= delta
 	if Input.is_action_pressed("shoot") && curr_cooldown <= 0 && !cant_shoot:
+		$BulletSpawner.bullet_reflectable = can_bullets_be_reflected
 		$BulletSpawner.shoot_bullets()
 		curr_cooldown = shooting_cooldown
 

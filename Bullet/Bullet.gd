@@ -22,6 +22,10 @@ func _on_VisibilityNotifier2D_screen_exited():
 		queue_free()
 
 
+func _on_VisibilityNotifier2D_screen_entered():
+	if !onscreen:
+		despawn_on_exit = true
+
 func _on_Bullet_body_entered(body):
 	if body is Character:
 		var character : Character = body as Character
@@ -38,3 +42,4 @@ func _on_Reflect():
 
 func _on_Timer_timeout():
 	queue_free()
+

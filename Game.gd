@@ -30,8 +30,10 @@ func _on_CountdownTimer_time_elapsed():
 		target_speed = 0.2
 		slow_down = true
 		$Player.cant_shoot = true
+		$Player.can_bullets_be_reflected = false
 	else: 
 		$CountdownTimer.target_time = 0
+		$Player.can_bullets_be_reflected = true
 		$CountdownTimer.start()
 	
 	$CountdownTimer.counting_down = !$CountdownTimer.counting_down
