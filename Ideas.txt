@@ -1,0 +1,15 @@
+Bullet Hell game jam:
+
+Theme : 10 seconds
+
+Ideas : 
+  - Shoot a bullet every ten seconds?
+  - Upgrade every ten seconds?
+ -- Survive 10 seconds?
+ -- "Bombs" every 10 seconds?
+ -- 10 seconds to prepare for a boss? (Place walls or protection?)
+ -- Plan 10 seconds of movement
+  - Pause every 10 seconds?
+ -- Change scene every 10 seconds (warioware?)
+  - Color/key change every ten seconds? (type of attacks, or ignore one color of bullet)
+ -> Every 10 seconds, bullets boomerang back to you

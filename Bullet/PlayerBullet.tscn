@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Bullet/Bullet.tscn" type="PackedScene" id=1]
+
+[node name="PlayerBullet" instance=ExtResource( 1 )]
+z_index = 2
+hurts_player = false
+hurts_enemies = true
+
+[node name="Sprite" parent="Sprite" index="0"]
+self_modulate = Color( 0.341176, 0.745098, 0.470588, 1 )

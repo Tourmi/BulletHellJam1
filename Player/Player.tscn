@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Character/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/Player.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Hit"
+length = 2.0
+step = 0.125
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1, 1.125, 1.25, 1.375, 1.5, 1.625, 1.75, 1.875, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.121569 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.121569 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.121569 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.121569 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.121569 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.121569 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.121569 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.121569 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Player" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="BulletSpawner" parent="." index="1"]
+bullet_reflectable = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+anims/Hit = SubResource( 1 )
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
