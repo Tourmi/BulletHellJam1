@@ -11,7 +11,6 @@ export var bullet_reflectable : bool = false
 export var shooting_cooldown : float = 0.5
 export var manual : bool = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	if !manual:
 		$Timer.wait_time = shooting_cooldown

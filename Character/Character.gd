@@ -12,7 +12,7 @@ export var cant_shoot : bool = false
 onready var can_be_hit : bool = true
 onready var health : int = maximum_health
 onready var curr_cooldown : float = shooting_cooldown
-
+onready var offscreen : bool = false
 
 func hit(damage : int):
 	health -= damage

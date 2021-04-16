@@ -6,6 +6,8 @@ export var slow_speed: int = 150
 
 onready var can_bullets_be_reflected : bool = true
 
+func _ready():
+	offscreen = false
 
 func _physics_process(delta):
 	var move := Vector2()

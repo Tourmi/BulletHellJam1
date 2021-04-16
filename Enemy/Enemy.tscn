@@ -6,7 +6,10 @@
 
 [node name="Enemy" instance=ExtResource( 1 )]
 rotation = 3.14159
+scale = Vector2( 3, 3 )
 script = ExtResource( 3 )
+speed = 250
+shooting_cooldown = 1.0
 is_enemy = true
 
 [node name="Sprite" parent="." index="0"]
@@ -15,6 +18,7 @@ self_modulate = Color( 1, 0.560784, 0, 1 )
 [node name="BulletSpawner" parent="." index="1"]
 BulletScene = ExtResource( 2 )
 bullet_origin = Vector2( 0, 10 )
-bullet_speed = 200
-bullet_spread = 90.0
-bullet_scale = 0.1
+bullet_speed = 150
+bullet_spread = 60.0
+bullet_count = 3
+bullet_scale = 0.08

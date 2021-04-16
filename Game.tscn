@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemy/Wave.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://CountdownTimer/CountdownTimer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game.gd" type="Script" id=4]
@@ -9,10 +9,10 @@
 script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 540.14, 523.658 )
+position = Vector2( 492.14, 1091.66 )
 
-[node name="Enemy" parent="." instance=ExtResource( 1 )]
-position = Vector2( 540.889, 37.4577 )
+[node name="Wave" parent="." instance=ExtResource( 1 )]
+position = Vector2( -21.5501, -0.11853 )
 
 [node name="CountdownTimer" parent="." instance=ExtResource( 3 )]
 margin_left = 831.185
