@@ -35,6 +35,10 @@ _global_script_class_icons={
 config/name="BulletHellJam"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/height=1200
+
 [input]
 
 move_up={

@@ -19,4 +19,9 @@ margin_left = 831.185
 margin_top = 0.110123
 margin_right = 1023.18
 margin_bottom = 86.1101
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 [connection signal="time_elapsed" from="CountdownTimer" to="." method="_on_CountdownTimer_time_elapsed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

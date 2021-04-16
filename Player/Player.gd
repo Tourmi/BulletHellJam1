@@ -4,15 +4,6 @@ class_name Player
 
 export var slow_speed: int = 150
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 
 func _physics_process(delta):
 	var move := Vector2()
@@ -27,11 +18,10 @@ func _physics_process(delta):
 	global_position = Vector2(clamp(global_position.x, 0, get_viewport_rect().size.x), clamp(global_position.y, 0, get_viewport_rect().size.y))
 	
 	curr_cooldown -= delta
-	if Input.is_action_pressed("shoot") && curr_cooldown <= 0:
+	if Input.is_action_pressed("shoot") && curr_cooldown <= 0 && !cant_shoot:
 		$BulletSpawner.shoot_bullets()
 		curr_cooldown = shooting_cooldown
-	
-	pass
+
 
 func hit(damage : int):
 	can_be_hit = false
@@ -44,4 +34,3 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		can_be_hit = true
 		if health <= 0:
 			get_tree().change_scene("res://GameOver.tscn")
-	pass # Replace with function body.
