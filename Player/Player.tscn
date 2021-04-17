@@ -22,6 +22,7 @@ tracks/0/keys = {
 
 [node name="Player" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+maximum_health = 150
 
 [node name="BulletSpawner" parent="." index="1"]
 bullet_reflectable = true

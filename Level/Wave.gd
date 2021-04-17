@@ -1,10 +1,13 @@
 extends Path2D
 
+signal wave_completed
+
 export var character : PackedScene
 export var distance_between_characters : int = 500
 export var loop : bool = true
 export var character_count : int = 1
 export var character_rotation : int = -90
+
 
 var all_spawned : bool = false
 var curr_path_follow_offset : float = 0
@@ -34,10 +37,12 @@ func _process(delta):
 	if characters.size() == character_count:
 		all_spawned = true
 	
+	free_if_all_dead()
 
 func free_if_all_dead():
 	if !all_spawned : return
 	for i in characters.size():
 		if characters[i] != null: return
+	emit_signal("wave_completed")
 	queue_free()
 	

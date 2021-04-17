@@ -8,7 +8,7 @@
 rotation = 3.14159
 scale = Vector2( 3, 3 )
 script = ExtResource( 3 )
-speed = 250
+speed = 200
 shooting_cooldown = 1.0
 is_enemy = true
 
