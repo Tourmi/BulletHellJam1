@@ -63,6 +63,11 @@ func _on_level_completed():
 		get_tree().change_scene("res://GameWon.tscn")
 		return
 	
+	$Player.add_upgrade("wave", 2)
+	$Player.add_upgrade("shooting_cooldown", 0.85)
+	$Player.add_upgrade("bullet_scale", 1.15)
+	$Player.add_upgrade("bullet_count", 2)
+	$Player.add_upgrade("bullet_speed", 1.15)
 	$CountdownTimer.target_time = 0
 	$CountdownTimer.time = 10
 	$CountdownTimer.counting_down = true

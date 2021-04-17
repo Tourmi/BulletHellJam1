@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Bullet/WavyBullet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://BulletSpawner/BulletSpawner.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Hit"
@@ -22,11 +24,31 @@ tracks/0/keys = {
 
 [node name="Player" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+speed = 400
 maximum_health = 150
 
-[node name="BulletSpawner" parent="." index="1"]
+[node name="BulletSpawner" parent="." index="1" groups=[
+"PlayerSpawners",
+]]
+is_enemy = false
 bullet_reflectable = true
+shooting_cooldown = 0.25
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 anims/Hit = SubResource( 1 )
+
+[node name="WavyBulletSpawner" parent="." index="4" groups=[
+"PlayerSpawners",
+] instance=ExtResource( 4 )]
+rotation = 1.5708
+BulletScene = ExtResource( 3 )
+is_enemy = false
+bullet_origin = Vector2( 0, -10 )
+bullet_speed = 150
+bullet_spread = 0.0
+bullet_count = 0
+bullet_scale = 0.08
+bullet_reflectable = true
+shooting_cooldown = 1.0
+manual = true
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

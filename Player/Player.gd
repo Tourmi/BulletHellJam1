@@ -21,12 +21,32 @@ func _physics_process(delta):
 	
 	global_position = Vector2(clamp(global_position.x, 0, get_viewport_rect().size.x), clamp(global_position.y, 0, get_viewport_rect().size.y))
 	
-	curr_cooldown -= delta
-	if Input.is_action_pressed("shoot") && curr_cooldown <= 0 && !cant_shoot:
-		$BulletSpawner.bullet_reflectable = can_bullets_be_reflected
-		$BulletSpawner.shoot_bullets()
-		curr_cooldown = shooting_cooldown
+	if Input.is_action_pressed("shoot") && !cant_shoot:
+		for bs in get_tree().get_nodes_in_group("PlayerSpawners"):
+			var bulletSpawner := bs as BulletSpawner
+			bulletSpawner.bullet_reflectable = can_bullets_be_reflected
+			bulletSpawner.shoot_bullets()
 
+
+# 
+func add_upgrade(name : String, value):
+	match name:
+		"wave":
+			$WavyBulletSpawner.bullet_count += value
+		"bullet_count":
+			$BulletSpawner.bullet_count += value
+		"bullet_scale":
+			$BulletSpawner.bullet_scale *= value
+			$WavyBulletSpawner.bullet_scale *= value
+		"bullet_spread":
+			$BulletSpawner.bullet_spread *= value
+		"bullet_speed":
+			$BulletSpawner.bullet_speed *= value
+			$WavyBulletSpawner.bullet_speed *= value
+		"shooting_cooldown":
+			$BulletSpawner.shooting_cooldown *= value
+			$WavyBulletSpawner.shooting_cooldown *= value
+	
 
 func hit(damage : int):
 	can_be_hit = false

@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Bullet/Bullet.gd"
 }, {
+"base": "Node2D",
+"class": "BulletSpawner",
+"language": "GDScript",
+"path": "res://BulletSpawner/BulletSpawner.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Character",
 "language": "GDScript",
@@ -23,11 +28,18 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player/Player.gd"
+}, {
+"base": "Bullet",
+"class": "WavyBullet",
+"language": "GDScript",
+"path": "res://Bullet/WavyBullet.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
+"BulletSpawner": "",
 "Character": "",
-"Player": ""
+"Player": "",
+"WavyBullet": ""
 }
 
 [application]
